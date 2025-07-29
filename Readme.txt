@@ -1,6 +1,5 @@
-Thanks for downloading this template!
+# theoluwatobiloba.github.io
 
-Template Name: SnapFolio
-Template URL: https://bootstrapmade.com/snapfolio-bootstrap-portfolio-template/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+Welcome to my personal portfolio website.
+
+This site showcases my work as a Front-end Web Developer and aspiring Data Analyst.
