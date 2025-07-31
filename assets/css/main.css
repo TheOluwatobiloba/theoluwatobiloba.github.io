@@ -686,8 +686,6 @@ section,
 .hero .social-links {
   display: flex;
   gap: 20px;
-  align-items: center;
-  justify-content: center;
 }
 
 .hero .social-links a {
@@ -836,6 +834,13 @@ section,
     width: 100px;
     height: 100px;
   }
+
+  .hero .social-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
 }
 
 /*--------------------------------------------------------------
