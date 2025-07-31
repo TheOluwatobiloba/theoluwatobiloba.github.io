@@ -937,29 +937,27 @@
           <h3>Get In Touch</h3>
 
           <!-- Updated form with FormSubmit -->
-          <form action="https://formspree.io/f/xanbbpzy" method="POST" class="php-email-form">
+          <form id="contact-form" action="https://formspree.io/f/xanbbpzy" method="POST">
   <div class="row gy-4">
     <div class="col-md-6">
       <input type="text" name="name" class="form-control" placeholder="Your Name" required>
     </div>
-
     <div class="col-md-6">
       <input type="email" name="email" class="form-control" placeholder="Your Email" required>
     </div>
-
     <div class="col-12">
       <input type="text" name="subject" class="form-control" placeholder="Subject" required>
     </div>
-
     <div class="col-12">
       <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
     </div>
-
     <div class="col-12 text-center">
       <button type="submit" class="btn">Send Message</button>
+      <p id="form-status" style="margin-top: 10px;"></p>
     </div>
   </div>
 </form>
+
 
 
         </div>
@@ -990,6 +988,39 @@
 
   <!-- Vendor JS Files -->
   <!-- Critical scripts -->
+   <script>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); // Prevent default page reload
+
+    const data = new FormData(form);
+    const action = form.action;
+
+    status.innerHTML = "Sending...";
+
+    try {
+      const response = await fetch(action, {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      if (response.ok) {
+        status.innerHTML = "Message sent successfully!";
+        form.reset(); // Clear form
+      } else {
+        status.innerHTML = "Oops! Something went wrong.";
+      }
+    } catch (error) {
+      status.innerHTML = "Network error. Please try again.";
+    }
+  });
+</script>
+
 <script src="assets/vendor/typed.js/typed.umd.js"></script>
 <script src="assets/vendor/aos/aos.js"></script>
 <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
